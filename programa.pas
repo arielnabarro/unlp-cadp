@@ -1,17 +1,48 @@
-{6. Realizar un programa que lea el número de legajo y el promedio de cada alumno de la facultad. 
- La lectura finaliza cuando se ingresa el legajo -1, que no debe procesarse.
-    Por ejemplo, se lee la siguiente secuencia:
-    33423
-    8.40
-    19003
-    6.43
-    -1
-    En el ejemplo anterior, se leyó el legajo 33422, cuyo promedio fue 8.40, luego se leyó el legajo 19003, cuyo promedio fue 6.43, 
-    y finalmente el legajo -1 (para el cual no es necesario leer un promedio).
-    
-    Al finalizar la lectura, informar:
-        a. La cantidad de alumnos leída (en el ejemplo anterior, se debería informar 2).
-        b. La cantidad de alumnos cuyo promedio supera 6.5 (en el ejemplo anterior, se debería informar 1).
-        c. El porcentaje de alumnos destacados (alumnos con promedio mayor a 8.5) cuyo legajo sean menor al valor 2500 (en el ejemplo anterior 
-            se debería informar 0%).}
+{9. Realizar un programa que lea un carácter, que puede ser “+” (suma) o “-” (resta); si se ingresa otro carácter, 
+    debe informar un error y finalizar. 
+    Una vez leído el carácter de suma o resta, deberá leerse una secuencia de números enteros que finaliza con 0. 
+    El programa deberá  aplicar la operación leída con la secuencia de números, e imprimir el resultado final.
+    Por ejemplo:
+    - Si se lee el carácter “-” y la secuencia 4 3 5 -6 0 , deberá imprimir: 2 (4 – 3 – 5 - (-6) )
+    - Si se lee el carácter “+” y la secuencia -10 5 6 -1 0, deberá imprimir 0 ( -10 + 5 + 6 + (-1) )
+}
 
+program nueve;
+
+var 
+    operacion: char;
+    resultado,numero: integer;
+
+begin
+    resultado:=0;
+    write('Ingrese operacion "+" o "-" : ');
+    read(operacion);
+    if operacion='+' then
+    begin
+        while(True) do
+        begin
+            write('Ingrese numero entero: ');
+            read(numero);
+            if numero=0 then
+                break
+            else
+            resultado:=resultado+numero;
+        end;
+    end
+    else 
+        if operacion='-' then {Sustracción}
+        begin
+            write('Ingrese numero entero: ');
+                read(resultado);
+            while(True) do
+            begin
+                write('Ingrese numero entero: ');
+                read(numero);
+                if numero=0 then
+                    break
+                else
+                    resultado:=resultado-numero;
+            end;
+        end;
+    write('El resultado es: ',resultado);
+end.

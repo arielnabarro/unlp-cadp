@@ -177,27 +177,162 @@
         a. La cantidad de alumnos leída (en el ejemplo anterior, se debería informar 2).
         b. La cantidad de alumnos cuyo promedio supera 6.5 (en el ejemplo anterior, se debería informar 1).
         c. El porcentaje de alumnos destacados (alumnos con promedio mayor a 8.5) cuyo legajo sean menor al valor 2500 (en el ejemplo anterior se debería informar 0%).
-    
-```pascal
+.
+    ```pascal
+    program seis;
+    var 
+        Legajo, Cont_Alu, Cont_Prom, Cont_Dest: integer;
+        Promedio: real;
 
-```
+    begin
+        Cont_Alu:= 0; {inicio de contadores}
+        Cont_Dest:= 0;
+        Cont_Prom:= 0;
 
-7. Realizar un programa que lea el código, el precio actual y el nuevo precio de los productos de un
-almacén. La lectura finaliza al ingresar el producto con el código 32767, el cual debe procesarse.
-Para cada producto leído, el programa deberá indicar si el nuevo precio del producto supera en un
-10% al precio anterior.
-Por ejemplo:
-○ Si se ingresa el código 10382, con precio actual 40, y nuevo precio 44, deberá imprimir: “el
-aumento de precio del producto 10382 no supera el 10%”
-○ Si se ingresa el código 32767, con precio actual 30 y nuevo precio 33,01, deberá imprimir: “el
-aumento de precio del producto 32767 es superior al 10%”
-8. Realizar un programa que lea tres caracteres, e informe si los tres eran letras vocales o si al menos
-uno de ellos no lo era. Por ejemplo, si se leen los caracteres “a e o” deberá informar “Los tres son
-vocales”, y si se leen los caracteres “z a g” deberá informar “al menos un carácter no era vocal”.
-9. Realizar un programa que lea un carácter, que puede ser “+” (suma) o “-” (resta); si se ingresa otro
-carácter, debe informar un error y finalizar. Una vez leído el carácter de suma o resta, deberá leerse
-una secuencia de números enteros que finaliza con 0. El programa deberá aplicar la operación leída
-con la secuencia de números, e imprimir el resultado final.
-Por ejemplo:
-○ Si se lee el carácter “-” y la secuencia 4 3 5 -6 0 , deberá imprimir: 2 (4 – 3 – 5 - (-6) )
-○ Si se lee el carácter “+” y la secuencia -10 5 6 -1 0, deberá imprimir 0 ( -10 + 5 + 6 + (-1) )
+        {Comienzo de lectura de datos}
+        while (True) do
+            begin
+                write('Ingrese legajo: ');
+                read(Legajo);
+                if Legajo=-1 then
+                    break;
+                write('Ingrese promedio: ');
+                read(Promedio);
+                
+                {fin del ingreso, contadores}
+                Cont_Alu:= Cont_Alu+1;
+                if Promedio > 6.5 then
+                    Cont_Prom:= Cont_Prom + 1;
+                if Promedio > 8.5 then
+                    Cont_Dest:= Cont_Dest + 1;
+            end;
+
+        {Informes}
+        write('Alumnos leidos: ',Cont_Alu, ', Promedios mayores a 6.5: ',Cont_Prom, ', Promedios destacados mayores a 8.5: ',Cont_Dest);
+    end.
+    ```
+
+7. Realizar un programa que lea el código, el precio actual y el nuevo precio de los productos de un almacén. La lectura finaliza al ingresar el producto con el código 32767, el cual debe procesarse. Para cada producto leído, el programa deberá indicar si el nuevo precio del producto supera en un 10% al precio anterior.
+    Por ejemplo:
+    - Si se ingresa el código 10382, con precio actual 40, y nuevo precio 44, deberá imprimir: “el aumento de precio del producto 10382 no supera el 10%”
+    - Si se ingresa el código 32767, con precio actual 30 y nuevo precio 33,01, deberá imprimir: “el aumento de precio del producto 32767 es superior al 10%”
+.
+    ```pascal
+    program siete;
+
+    var
+        Codigo: integer;
+        Precio_1,Precio_2: real;
+
+    begin
+        while True do
+            begin
+            write('Ingrese el codigo de producto: ');
+            read(Codigo);
+            if Codigo = 32767 then {salida de la iteracion}
+                break;
+            write('Ingrese el precio inicial: $');
+            read(Precio_1);
+            write('Ingrese el nuevo precio: $');
+            read(Precio_2);
+
+            {Comparación}
+            if Precio_2>Precio_1*1.1 then
+                writeLn('el aumento de precio del producto ', Codigo, ' es superior al 10%')
+            else
+                writeLn('el aumento de precio del producto ', Codigo, ' no supera el 10%')
+            end;
+    end.
+    ```
+    >En Pascal, puedes utilizar la instrucción WriteLn en lugar de Write para imprimir una cadena de texto en la consola y agregar una nueva línea después de cada ejecución.
+
+8. Realizar un programa que lea tres caracteres, e informe si los tres eran letras vocales o si al menos uno de ellos no lo era. Por ejemplo, si se leen los caracteres “a e o” deberá informar “Los tres son vocales”, y si se leen los caracteres “z a g” deberá informar “al menos un carácter no era vocal”.
+.
+    ```pascal
+    program ocho;
+
+    var 
+        aux: char;
+        contador, i: integer;
+
+    begin
+        i:=0; {Inicializando contadores}
+        contador:=0;
+
+        while (true) do 
+            begin
+                i:=i+1;
+                if i=4 then
+                    break;  {Stop de bucle}
+                write('Ingrese letra:');   {Lectura de dato}
+                readln(aux);
+                if aux='a' then
+                    contador:= contador+1;
+                if aux='e' then
+                    contador:= contador+1;
+                if aux='i' then
+                    contador:= contador+1;
+                if aux='o' then
+                    contador:= contador+1;
+                if aux='u' then
+                    contador:= contador+1;
+            end;
+
+        if contador=3 then
+            write('Los tres son vocales');
+        if contador=2 then 
+            write('al menos un carácter no era vocal');
+        if contador=1 then 
+            write('al menos un carácter no era vocal');
+        if contador=0 then
+            write('No hay vocales');
+    end.
+    ```
+
+9. Realizar un programa que lea un carácter, que puede ser “+” (suma) o “-” (resta); si se ingresa otro carácter, debe informar un error y finalizar. Una vez leído el carácter de suma o resta, deberá leerse una secuencia de números enteros que finaliza con 0. El programa deberá  aplicar la operación leída con la secuencia de números, e imprimir el resultado final.
+    Por ejemplo:
+    - Si se lee el carácter “-” y la secuencia 4 3 5 -6 0 , deberá imprimir: 2 (4 – 3 – 5 - (-6) )
+    - Si se lee el carácter “+” y la secuencia -10 5 6 -1 0, deberá imprimir 0 ( -10 + 5 + 6 + (-1) )
+.
+    ```pascal
+    program nueve;
+
+    var 
+        operacion: char;
+        resultado,numero: integer;
+
+    begin
+        resultado:=0;
+        write('Ingrese operacion "+" o "-" : ');
+        read(operacion);
+        if operacion='+' then
+        begin
+            while(True) do
+            begin
+                write('Ingrese numero entero: ');
+                read(numero);
+                if numero=0 then
+                    break
+                else
+                resultado:=resultado+numero;
+            end;
+        end
+        else 
+            if operacion='-' then
+            begin
+                write('Ingrese numero entero: ');
+                    read(resultado);
+                while(True) do
+                begin
+                    write('Ingrese numero entero: ');
+                    read(numero);
+                    if numero=0 then
+                        break
+                    else
+                        resultado:=resultado-numero;
+                end;
+            end;
+        write('El resultado es: ',resultado);
+    end.
+    ```
+    >Por el momento llegué hasta acá, pero no me convence la opereción de sustracción a partir de la linea 24.
