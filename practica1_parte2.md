@@ -1,6 +1,7 @@
 # Practica 1 (parte 2) - Estructuras de contro: for y repeat-until
 
 1. Realizar un programa que lea 10 números enteros e informe la suma total de los números leídos.
+    
     a. Modifique el ejercicio 1 para que además informe la cantidad de números mayores a 5.
 
     ```pascal
@@ -72,6 +73,7 @@
     ```
 
 3. Realizar un programa que lea desde teclado la información de alumnos ingresantes a la carrera Analista en TIC. De cada alumno se lee nombre y nota obtenida en el módulo EPA (la nota es un número entre 1 y 10). La lectura finaliza cuando se lee el nombre “Zidane Zinedine“, que debe procesarse. Al finalizar la lectura informar:
+    
     - La cantidad de alumnos aprobados (nota 8 o mayor) y
     - la cantidad de alumnos que obtuvieron un 7 como nota.
 
@@ -101,7 +103,9 @@
     ```
 
 4. Realizar un programa que lea 1000 números enteros desde teclado. Informar en pantalla cuáles son los dos números mínimos leídos.
+    
     a. Modifique el ejercicio anterior para que, en vez de leer 1000 números, la lectura finalice al leer el número 0, el cual debe procesarse.
+    
     b. Modifique el ejercicio anterior para que, en vez de leer 1000 números, la lectura finalice al leer el número 0, el cual no debe procesarse
 
     ```pascal
@@ -118,6 +122,7 @@
     ```
 
 6. Realizar un programa que lea información de 200 productos de un supermercado. De cada producto se lee código y precio (cada código es un número entre 1 y 200). Informar en pantalla:
+    
     - Los códigos de los dos productos más baratos.
     - La cantidad de productos de más de 16 pesos con código par.
 
@@ -126,6 +131,7 @@
     ```
 
 7. Realizar un programa que lea desde teclado información de autos de carrera. Para cada uno de los autos se lee el nombre del piloto y el tiempo total que le tomó finalizar la carrera. En la carrera participaron 100 autos. Informar en pantalla:
+    
     - Los nombres de los dos pilotos que finalizaron en los dos primeros puestos.
     - Los nombres de los dos pilotos que finalizaron en los dos últimos puestos.
 
