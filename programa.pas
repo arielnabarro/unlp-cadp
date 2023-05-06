@@ -1,7 +1,17 @@
 {
-4. Realizar un programa que lea 1000 números enteros desde teclado. Informar en pantalla cuáles son los dos números mínimos leídos.
-    a. Modifique el ejercicio anterior para que, en vez de leer 1000 números, la lectura finalice al leer el número 0, el cual debe procesarse.
-    b. Modifique el ejercicio anterior para que, en vez de leer 1000 números, la lectura finalice al leer el número 0, el cual no debe procesarse
+    6. Realizar un programa que lea información de 200 productos de un supermercado. 
+    De cada producto se lee código y precio (cada código es un número entre 1 y 200). Informar en pantalla:
+    
+    * Los códigos de los dos productos más baratos.
+    * La cantidad de productos de más de 16 pesos con código par.
 }
 
-program cuatro;
+program seis;
+
+var
+    codigo, codigo_a, codigo_b, par: integer;
+    precio, seleccionados: real;
+begin
+        {rehacer}
+end.
+    

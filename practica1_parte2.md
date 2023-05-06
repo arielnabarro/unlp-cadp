@@ -103,28 +103,166 @@
     ```
 
 4. Realizar un programa que lea 1000 números enteros desde teclado. Informar en pantalla cuáles son los dos números mínimos leídos.
-    
+    ```pascal
+    program cuatro;
+
+    var 
+        i,numero, min_1, min_2: integer;
+    begin
+        i:=1;
+        write('(secuencia: ',i,') Ingrese numero: '); 
+        read(min_1);
+        min_2 := min_1;
+        for i := 2 to 1000 do
+        begin
+        write('(secuencia: ',i,') Ingrese numero: ');
+        read(numero);
+        if numero < min_1 then
+            begin
+            writeln('remplazazo min_2= ', min_2, ' por el valor de min_1= ',min_1); {comentario}
+            min_2 := min_1;
+            min_1 := numero;
+            writeln('min_2= ',min_2,' el valor de min_1= ',min_1,' que seria el numero ingresado');    {comentario}
+            end
+        else
+            begin
+            if numero < min_2 then
+                begin
+                min_2 := numero;
+                writeln('El anteultimo número más chico ahora es: ',min_2); {comentario}
+                end;
+            end;
+        end;
+        writeln('El numero mas chico ingresado es: ', min_1,' el que le sigue es:',min_2);
+    end.
+    ```    
     a. Modifique el ejercicio anterior para que, en vez de leer 1000 números, la lectura finalice al leer el número 0, el cual debe procesarse.
-    
+
+    ```pascal
+    program cuatro;
+
+    var 
+        i,numero, min_1, min_2: integer;
+    begin
+        i:=1;
+        write('(secuencia: ',i,') Ingrese numero: '); 
+        read(min_1);
+        min_2 := min_1;
+        if min_1=0 then
+            i:=1000;
+        while i <> 1000 do
+        begin
+        i:=i+1;
+        write('(secuencia: ',i,') Ingrese numero: ');
+        read(numero);
+        if numero < min_1 then
+            begin
+            writeln('remplazazo min_2= ', min_2, ' por el valor de min_1= ',min_1); {comentario}
+            min_2 := min_1;
+            min_1 := numero;
+            writeln('min_2= ',min_2,' el valor de min_1= ',min_1,' que seria el numero ingresado');    {comentario}
+            end
+        else
+            begin
+            if numero < min_2 then
+                begin
+                min_2 := numero;
+                writeln('El anteultimo número más chico ahora es: ',min_2); {comentario}
+                end;
+            end;
+        if numero=0 then
+            i:=1000;
+        end;
+        writeln('El numero mas chico ingresado es: ', min_1,' el que le sigue es: ',min_2);
+    end.
+    ```
+        
     b. Modifique el ejercicio anterior para que, en vez de leer 1000 números, la lectura finalice al leer el número 0, el cual no debe procesarse
 
     ```pascal
+        program cuatro;
 
+    var 
+        i,numero, min_1, min_2: integer;
+    begin
+        i:=1;
+        write('(secuencia: ',i,') Ingrese numero: '); 
+        read(min_1);
+        if min_1 <> 0 then
+            begin
+                min_2 := min_1;
+                while i <> 1000 do
+                begin
+                    writeln('Se procesa'); {comentario}
+                    i:=i+1;
+                    write('(secuencia: ',i,') Ingrese numero: ');
+                    read(numero);
+                    if numero <> 0 then
+                        begin
+                            if numero < min_1 then
+                            begin
+                                writeln('remplazazo min_2= ', min_2, ' por el valor de min_1= ',min_1); {comentario}
+                                min_2 := min_1;
+                                min_1 := numero;
+                                writeln('min_2= ',min_2,' el valor de min_1= ',min_1,' que seria el numero ingresado');    {comentario}
+                            end
+                            else
+                            begin
+                                if numero < min_2 then
+                                begin
+                                    min_2 := numero;
+                                    writeln('El anteultimo número más chico ahora es: ',min_2); {comentario}
+                                end;
+                            end;    
+                        end
+                    else
+                        i:=1000
+                end;
+            end;
+    writeln('El numero mas chico ingresado es: ', min_1,' el que le sigue es: ',min_2);
+    end.
     ```
 
+    > Puede que sea una crotada pero funca.
+
 5. Realizar un programa que lea números enteros desde teclado. La lectura debe finalizar cuando se ingrese el número 100, el cual debe procesarse. Informar en pantalla:
-    ◦ El número máximo leído.
-    ◦ El número mínimo leído.
-    ◦ La suma total de los números leídos.
+
+    * El número máximo leído.
+    * El número mínimo leído.
+    * La suma total de los números leídos.
 
     ```pascal
+    program cinco;
 
+    var 
+        numero, maximo, minimo, suma: integer;
+
+    begin
+        write('Ingrese numero: ');
+        read(numero);
+        maximo:=numero;
+        minimo:=numero;
+        suma:=numero;
+        while numero <> 100 do 
+        begin
+            write('Ingrese numero: ');
+            read(numero);
+            if numero > maximo then
+                maximo:=numero;
+            if numero < minimo then
+                minimo:=numero;
+            suma:=suma+numero;
+        end;
+        writeln('El número máximo leído es: ',maximo);
+        writeln('El número mínimo leído es: ',minimo);
+        writeln('La suma total de los números leídos es: ',suma);
+    end.
     ```
 
 6. Realizar un programa que lea información de 200 productos de un supermercado. De cada producto se lee código y precio (cada código es un número entre 1 y 200). Informar en pantalla:
     
-    - Los códigos de los dos productos más baratos.
-    - La cantidad de productos de más de 16 pesos con código par.
+    * Los códigos de los dos productos más baratos.
+    * La cantidad de productos de más de 16 pesos con código par.
 
     ```pascal
 
@@ -132,14 +270,15 @@
 
 7. Realizar un programa que lea desde teclado información de autos de carrera. Para cada uno de los autos se lee el nombre del piloto y el tiempo total que le tomó finalizar la carrera. En la carrera participaron 100 autos. Informar en pantalla:
     
-    - Los nombres de los dos pilotos que finalizaron en los dos primeros puestos.
-    - Los nombres de los dos pilotos que finalizaron en los dos últimos puestos.
+    * Los nombres de los dos pilotos que finalizaron en los dos primeros puestos.
+    * Los nombres de los dos pilotos que finalizaron en los dos últimos puestos.
 
     ```pascal
 
     ```
 
 8. Un local de ropa desea analizar las ventas realizadas en el último mes. Para ello se lee por cada día del mes, los montos de las ventas realizadas. La lectura de montos para cada día finaliza cuando se lee el monto 0. Se asume un mes de 31 días. Informar la cantidad de ventas por cada día, y el monto total acumulado en ventas de todo el mes.
+   
     a. Modifique el ejercicio anterior para que además informe el día en el que se realizó la mayor cantidad de ventas.
  
     ```pascal
