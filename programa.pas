@@ -12,6 +12,7 @@ var
     codigo, codigo_a, codigo_b, par: integer;
     precio, seleccionados: real;
 begin
+        // es posible que tenga que usar tipos de datos con rangos.
         {rehacer}
 end.
     
