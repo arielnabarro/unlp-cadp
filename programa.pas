@@ -13,6 +13,7 @@ var
     precio, seleccionados: real;
 begin
         // es posible que tenga que usar tipos de datos con rangos.
+        // tambien que realice algun tipo de validación con logica booleana en un if.
         {rehacer}
 end.
     
