@@ -10,10 +10,40 @@ program seis;
 
 var
     codigo, codigo_a, codigo_b, par: integer;
-    precio, seleccionados: real;
+    precio, precio_a, precio_b: real;
 begin
         // es posible que tenga que usar tipos de datos con rangos.
         // tambien que realice algun tipo de validación con logica booleana en un if.
-        {rehacer}
+        repeat
+            write( 'Ingrese código de producto:');
+            read(codigo);
+        until (codigo<=200);
+        write( 'Ingrese precio de producto:');
+        read(precio);     
+    for i := 2 to 200 do
+    begin
+        repeat
+            write( 'Ingrese código de producto:');
+            read(codigo);
+        until (codigo<=200);
+        write( 'Ingrese precio de producto:');
+        read(precio);
+        if precio<precio_a then
+            begin
+                precio_b:= precio_a;
+                precio_a= precio;
+            end;
+        else
+            begin
+                if precio < precio_b then
+                    precio_b:= precio;    
+            end;
+        if precio>16 then
+        begin
+        if precio mod 2 = 0 then {ver si es par}
+            par:= par+1;            
+        end;
+    end;
+    writeln('El producto mas barato es: ',)
 end.
     
