@@ -319,8 +319,56 @@
     * Los nombres de los dos pilotos que finalizaron en los dos últimos puestos.
 
     ```pascal
+    program siete;
 
+    var
+        i: integer;
+        nombre, n_ultimo, n_ante, n_win: string;
+        tiempo, t_ultimo, t_ante, t_win: real;
+
+    begin
+        {Entrada manual}
+        write('1. Ingrese nombre: ');
+        read(nombre);
+        write('1. Ingrese tiempo: ');
+        read(tiempo);
+
+        {inicializo variables}
+        t_ultimo:=tiempo;
+        t_ante:=n_ante;
+        t_win:=tiempo;
+
+        for i := 99 to max do
+        begin
+            {Entrada manual}
+            write('1. Ingrese nombre: ');
+            read(nombre);
+            write('1. Ingrese tiempo: ');
+            read(tiempo);
+            case tiempo of
+                tiempo >  t_ultimo :    
+                    begin
+                        t_ante:= t_ultimo;
+                        t_ultimo:= tiempo;
+                        n_ante:=n_ultimo;
+                        n_ultimo:=nombre;
+                    end;
+                tiempo > t_anteultimo :
+                    begin
+                        t_ante:=tiempo;
+                        n_ante:=nombre;
+                    end;
+                tiempo < Ganador :
+                    begin
+                        t_win:=tiempo;
+                        n_win:=nombre;
+                    end;
+                    {Ver lo de los primeros dos puestos}
+            end;
+        end;
+    end.
     ```
+    > el ejercicio está incompleto.
 
 8. Un local de ropa desea analizar las ventas realizadas en el último mes. Para ello se lee por cada día del mes, los montos de las ventas realizadas. La lectura de montos para cada día finaliza cuando se lee el monto 0. Se asume un mes de 31 días. Informar la cantidad de ventas por cada día, y el monto total acumulado en ventas de todo el mes.
    
